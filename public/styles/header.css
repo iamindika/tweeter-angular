@@ -1,0 +1,26 @@
+header {
+  height: 500px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(../images/asfalt-light.png);
+  background-color: #000000;
+}
+
+header i {
+  padding-top: 0.5em;
+  font-size: 9em;
+  color: #FFFFFF;
+}
+
+header span {
+  font-family: "Source Sans Pro", "sans-serif";
+  font-size: 2em;
+  color: #FFFFFF;
+}
+
+
+
+
