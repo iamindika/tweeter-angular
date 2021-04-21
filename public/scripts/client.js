@@ -7,6 +7,18 @@
 const data = [
   {
     "user": {
+      "name": "Buzz Aldrin",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
+      "handle": "@TheBuzz"
+    },
+    "content": {
+      "text": "Neil Armstrong was the first man to walk on the moon. I am the first man to piss his pants on the moon."
+    },
+    "created_at": 1461116232227
+  },
+  {
+    "user": {
       "name": "Newton",
       "avatars": "https://i.imgur.com/73hZDYK.png"
       ,
