@@ -1,4 +1,4 @@
-header {
+body > header {
   height: 500px;
   width: 100vw;
   display: flex;
@@ -9,13 +9,13 @@ header {
   background-color: #000000;
 }
 
-header i {
+body > header i {
   padding-top: 0.5em;
   font-size: 9em;
   color: #FFFFFF;
 }
 
-header span {
+body > header span {
   font-family: "Source Sans Pro", "sans-serif";
   font-size: 2em;
   color: #FFFFFF;

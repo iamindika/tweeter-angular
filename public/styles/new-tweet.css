@@ -1,18 +1,18 @@
-.new-tweet {
+section.new-tweet {
   width: 90%;
   margin: 20px auto;
 }
 
-.new-tweet > form {
+section.new-tweet form {
   display: flex;
   flex-direction: column;
 }
 
-.new-tweet label {
+section.new-tweet label {
   font-weight: bold;
 }
 
-.new-tweet textarea {
+section.new-tweet textarea {
   height: 35px;
   width: 100%;
   margin: 10px 0px;
@@ -21,14 +21,18 @@
   resize: none;
 }
 
-.new-tweet div {
+section.new-tweet div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-family: "Bungee", "sans-serif";
 }
 
-.new-tweet button {
+section.new-tweet button {
   background-color: #4056A1;
   color: #FFF;
+}
+
+section.new-tweet .counter.exceeded {
+  color: #FF0000;
 }
