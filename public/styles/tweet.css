@@ -1,0 +1,83 @@
+article.tweet {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: 40px auto;
+  padding: 10px 0;
+  border-style: solid;
+  justify-content: space-around;
+  align-items: center;
+}
+
+article.tweet:hover {
+  box-shadow: 10px 10px #d4d4d4;
+}
+
+article.tweet header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+  font-size: 1.25em;
+}
+
+article.tweet div.avatar {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+article.tweet i.fa-user{
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+article.tweet p.handle {
+  margin-right: 10px;
+  opacity: 0.3;
+}
+
+article.tweet:hover p.handle {
+  text-shadow: 1px 1px;
+}
+
+article.tweet p.tweet-text {
+  width: 98%;
+  padding-left: 20px;
+  font-size: 1.25em;
+}
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  width: 98%;
+  border: none;
+  border-top: solid;
+  font-size: 0.75em;
+}
+
+article.tweet p.time-ago {
+  margin: 10px 20px;
+}
+
+article.tweet div.icons {
+  margin: 10px 20px;
+  color: #4056A1;
+  font-size: 1.25em;
+}
+
+article.tweet i.fa-retweet {
+  margin: 0px 10px;
+}
+
+article.tweet i.fa-flag:hover {
+  color: #bbc440;
+}
+article.tweet i.fa-retweet:hover {
+  color: #bbc440;
+}
+
+article.tweet i.fa-heart:hover {
+  color: #bbc440;
+}
