@@ -35,9 +35,10 @@ const createTweetElement = tweetData => {
 };
 
 const renderTweets = tweetDataArr => {
+  let tweetsContainer = $('#tweets').html('');
   tweetDataArr.forEach(tweetData => {
     const $tweet = createTweetElement(tweetData);
-    $('#container').append($tweet);
+    tweetsContainer.prepend($tweet);
   });
 }
 
@@ -51,6 +52,7 @@ $(document).ready(function () {
   }
 
   loadTweets();
+
   const form = $("#new-tweet").children();
 
   form.submit(function (e) {
@@ -58,7 +60,7 @@ $(document).ready(function () {
 
     const postedTweet = $('#tweet-text').val(); 
     const newTweetLength = postedTweet.length;
-    
+
     if (!postedTweet.trim()) {
       alert("Error: No empty Tweets or blank messages!");
     } else if (newTweetLength > 140) {
@@ -67,6 +69,10 @@ $(document).ready(function () {
       $.ajax('/tweets', {
         method: 'POST',
         data: $(this).serialize()
+      })
+      .then(() => {
+        $('#tweet-text').val('');
+        loadTweets();
       })
     }
   });
