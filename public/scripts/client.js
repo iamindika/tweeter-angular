@@ -4,49 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [
-  {
-    "user": {
-      "name": "Buzz Aldrin",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@TheBuzz"
-    },
-    "content": {
-      "text": "Neil Armstrong was the first man to walk on the moon. I am the first man to piss his pants on the moon."
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-
+//Bug: Hardcoded time passed in datetime attribute till timeago bug is fixed. See time-passed.js
 const createTweetElement = tweetData => {
   const { name, avatars, handle } = tweetData.user;
   const { text } = tweetData.content;
-  const { created_at: createdAt } = tweetData.created_at;
+  const createdAt  = timeago.format(tweetData.created_at);
 
-  const $tweet = `
+  const $tweet = $(`
     <article class="tweet">
     <header>
         <div class="avatar">
@@ -57,7 +21,7 @@ const createTweetElement = tweetData => {
     </header>
     <p class="tweet-text">${text}</p>
     <footer>
-      <p class="time-ago" datetime=${createdAt}></p>
+      <p class="time-ago">${createdAt}</p>
       <div class="icons">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
@@ -65,7 +29,7 @@ const createTweetElement = tweetData => {
       </div>
     </footer>
   </article>
-  `;
+  `);
 
   return $tweet;
 };
@@ -78,5 +42,32 @@ const renderTweets = tweetDataArr => {
 }
 
 $(document).ready(function () {
-  renderTweets(data);
+
+  const loadTweets = () => {
+    $.ajax('/tweets', {
+      dataType: "json",
+      success: renderTweets
+    });
+  }
+
+  loadTweets();
+  const form = $("#new-tweet").children();
+
+  form.submit(function (e) {
+    e.preventDefault();
+
+    const postedTweet = $('#tweet-text').val(); 
+    const newTweetLength = postedTweet.length;
+    
+    if (!postedTweet.trim()) {
+      alert("Error: No empty Tweets or blank messages!");
+    } else if (newTweetLength > 140) {
+      alert("Error: Tweet cannot exceed 140 chars!");
+    } else {
+      $.ajax('/tweets', {
+        method: 'POST',
+        data: $(this).serialize()
+      })
+    }
+  });
 });
