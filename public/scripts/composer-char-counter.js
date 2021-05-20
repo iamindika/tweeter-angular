@@ -4,5 +4,5 @@ $(document).ready(function () {
     let counterNode = $(this).parent().find(".counter");
     $(counterNode).toggleClass("exceeded", charCount < 0);
     $(counterNode).val(charCount);
-  });
+  }); 
 });
